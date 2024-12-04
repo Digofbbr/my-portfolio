@@ -98,10 +98,10 @@ const Projects = () => {
 					y: 0,
 					scrollTrigger: {
 						trigger: card,
-						start: "top 80%",
+						start: "top 90%",
 						end: "bottom center",
 						scrub: false,
-						markers: true,
+						markers: false,
 						toggleActions: "play none none none",
 					},
 					stagger: 0.5,
@@ -111,7 +111,7 @@ const Projects = () => {
 		});
 	});
 	return (
-		<ProjectSection className="projects-section">
+		<ProjectSection className="projects-section" id="projects">
 			<Container>
 				<h2>My projects</h2>
 				<ProjectCardsWrapper>
