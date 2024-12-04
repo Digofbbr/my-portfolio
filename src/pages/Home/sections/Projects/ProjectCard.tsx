@@ -2,6 +2,8 @@ import { styled } from "@mui/material";
 import React from "react";
 import Avatar from "../../../../assets/images/lego.jpg";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LanguageIcon from "@mui/icons-material/Language";
 
 const ProjectCardStyled = styled("div")({
 	position: "relative",
@@ -18,6 +20,7 @@ const ProjectCardStyled = styled("div")({
 
 	".text-content": {
 		display: "flex",
+		flexDirection: "column",
 		alignItems: "baseline",
 		justifyContent: "space-between",
 	},
@@ -42,33 +45,72 @@ const ProjectCardStyled = styled("div")({
 		borderRadius: "6px",
 	},
 
-	".icon-to-webpage": {
-		borderRadius: "6px",
-		background: "#38bdf8",
-		color: "#09090B",
-		fontSize: "10px",
-		display: "grid",
-		height: "30px",
-		width: "30px",
-		placeItems: "center",
-		flexShrink: "0",
+	".card-action-buttons": {
+		display: "flex", // Flex container
+		alignItems: "center", // Alinhamento vertical
+		paddingTop: "24px", // Remove padding superior (pt-0)
+		marginTop: "auto",
+		gap: "1rem",
 	},
 });
 
-const ProjectCard = ({ image, name }) => {
+const AnchorTag = styled("a")(({ theme }) => ({
+	display: "inline-flex",
+	alignItems: "center",
+	justifyContent: "center",
+	whiteSpace: "nowrap",
+	fontSize: theme.typography.pxToRem(14), // Equivalente ao texto "sm"
+	fontWeight: 500, // "medium"
+	border: `1px solid ${theme.palette.divider}`, // Equivalente ao "border-input"
+	backgroundColor: theme.palette.background.default, // "bg-background"
+	height: "2.25rem", // 36px (h-9)
+	borderRadius: theme.shape.borderRadius, // "rounded-md"
+	padding: "0 0.75rem", // px-3
+	color: theme.palette.text.primary,
+	cursor: "pointer",
+	textDecoration: "none",
+	transition: theme.transitions.create(["background-color", "color"], {
+		duration: theme.transitions.duration.short,
+	}),
+
+	"&:hover": {
+		backgroundColor: "hsl(0, 0%, 74.50980392156863%)", // "hover:bg-accent"
+	},
+
+	"&:focus-visible": {
+		outline: "none",
+		boxShadow: `0 0 0 2px ${theme.palette.primary.main}, 0 0 0 4px ${theme.palette.background.default}`, // "focus-visible:ring"
+	},
+
+	"&:disabled": {
+		pointerEvents: "none",
+		opacity: 0.5,
+	},
+}));
+
+const ProjectCard = ({ image, name, github_code, live_url, tags }) => {
 	return (
 		<ProjectCardStyled>
-			<img src={Avatar} alt="Project image" />
+			<img src={image} alt={name} className="project-image" />
 			<div className="text-content">
 				<div>
-					<h3>Nome do projeto</h3>
+					<h3>{name}</h3>
 					<div className="tag-wrapper">
-						<span>html</span>
-						<span>redux</span>
+						{tags.map((tag) => (
+							<span>{tag}</span>
+						))}
 					</div>
 				</div>
-				<div className="icon-to-webpage">
-					<ArrowOutwardIcon style={{ fontSize: "20px" }} />
+
+				<div className="card-action-buttons">
+					<AnchorTag href={github_code}>
+						<GitHubIcon sx={{ fontSize: 16, marginRight: 1 }} />
+						Github
+					</AnchorTag>
+					<AnchorTag href={live_url}>
+						<LanguageIcon sx={{ fontSize: 16, marginRight: 1 }} />
+						Live demo
+					</AnchorTag>
 				</div>
 			</div>
 		</ProjectCardStyled>
