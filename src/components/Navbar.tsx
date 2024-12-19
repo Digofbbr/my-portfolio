@@ -5,8 +5,8 @@ const StyledToolBarr = styled(Toolbar)({
 	justifyContent: "space-evenly",
 });
 
-const handleScroll = () => {
-	const targetDiv = document.getElementById("projects");
+const handleScroll = (section) => {
+	const targetDiv = document.getElementById(section);
 	if (targetDiv) {
 		targetDiv.scrollIntoView({ behavior: "smooth" });
 	}
@@ -16,9 +16,8 @@ const Navbar = () => {
 	return (
 		<AppBar position="absolute">
 			<StyledToolBarr>
-				<MenuItem>About</MenuItem>
-				<MenuItem onClick={handleScroll}>Projects</MenuItem>
-				<MenuItem>Skills</MenuItem>
+				<MenuItem onClick={() => handleScroll("projects")}>Projects</MenuItem>
+				<MenuItem onClick={() => handleScroll("contact")}>Contact</MenuItem>
 			</StyledToolBarr>
 		</AppBar>
 	);

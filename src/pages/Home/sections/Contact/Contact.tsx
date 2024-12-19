@@ -64,7 +64,7 @@ const Contact = () => {
 		},
 	}));
 
-	const SocialMediaWrapper = styled("div")({
+	const SocialMediaWrapper = styled("div")(({ theme }) => ({
 		display: "flex",
 		gap: "20px",
 		flexWrap: "wrap",
@@ -72,13 +72,35 @@ const Contact = () => {
 		width: "25%",
 		textAlign: "center",
 		justifyContent: "center",
-	});
 
-	const ContactWrapper = styled("div")({
+		[theme.breakpoints.down("sm")]: {
+			width: "100%",
+
+			h3: {
+				marginBottom: "10px",
+				marginTop: "48px",
+			},
+		},
+	}));
+
+	const ContactWrapper = styled("div")(({ theme }) => ({
 		display: "flex",
 		justifyContent: "space-around",
 		alignItems: "center",
-	});
+
+		".formContainer": {
+			width: "40%",
+			maxWidth: "460px",
+
+			[theme.breakpoints.down("sm")]: {
+				width: "100%",
+			},
+		},
+
+		[theme.breakpoints.down("sm")]: {
+			flexDirection: "column-reverse",
+		},
+	}));
 
 	const formRef = useRef();
 
@@ -148,10 +170,7 @@ const Contact = () => {
 						</StyledIcon>
 					</SocialMediaWrapper>
 
-					<div
-						style={{ width: "40%", maxWidth: "460px" }}
-						className="formContainer"
-					>
+					<div className="formContainer">
 						<Form ref={formRef} onSubmit={sendEmail}>
 							<FormInput type="text" required placeholder="Name" name="name" />
 							<FormInput

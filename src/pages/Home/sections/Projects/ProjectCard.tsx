@@ -103,11 +103,11 @@ const ProjectCard = ({ image, name, github_code, live_url, tags }) => {
 				</div>
 
 				<div className="card-action-buttons">
-					<AnchorTag href={github_code}>
+					<AnchorTag href={github_code} target="_blank">
 						<GitHubIcon sx={{ fontSize: 16, marginRight: 1 }} />
 						Github
 					</AnchorTag>
-					<AnchorTag href={live_url}>
+					<AnchorTag href={live_url} target="_blank">
 						<LanguageIcon sx={{ fontSize: 16, marginRight: 1 }} />
 						Live demo
 					</AnchorTag>

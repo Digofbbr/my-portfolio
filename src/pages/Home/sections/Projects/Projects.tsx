@@ -16,48 +16,65 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(ScrollTrigger);
 import Avatar from "../../../../assets/images/lego.jpg";
+import RecipeImg from "../../../../assets/images/receitas.webp";
+import DrinkImg from "../../../../assets/images/drinks.webp";
+import PizzaImg from "../../../../assets/images/pizzapp.png";
+import MovieImg from "../../../../assets/images/usepopcorn.png";
+import BookImg from "../../../../assets/images/bookstore.png";
 
 const projectsInfo = [
 	{
 		name: "Recipe App",
 		live_url: "https://receitas-one.vercel.app/",
 		github_code: "https://github.com/Digofbbr/receitas",
-		image: Avatar,
+		image: RecipeImg,
 		tags: ["React", "Styled Components", "Api"],
 	},
 	{
 		name: "Drinking App",
 		live_url: "https://drinks-list.vercel.app/",
 		github_code: "https://github.com/Digofbbr/Drinks-list",
-		image: "",
+		image: DrinkImg,
+		tags: ["React", "Api", "React Router"],
+	},
+	{
+		name: "Movie Ratings",
+		live_url: "https://use-popcorn-rouge.vercel.app/",
+		github_code: "https://github.com/Digofbbr/use-popcorn",
+		image: MovieImg,
 		tags: ["React", "Api"],
 	},
 	{
-		name: "Recipe App",
-		live_url: "https://receitas-one.vercel.app/",
-		github_code: "https://github.com/Digofbbr/receitas",
-		image: Avatar,
-		tags: ["React", "Styled Components", "Api"],
-	},
-	{
-		name: "Drinking App",
-		live_url: "https://drinks-list.vercel.app/",
-		github_code: "https://github.com/Digofbbr/Drinks-list",
-		image: "",
-		tags: ["React", "Api"],
+		name: "Pizza App",
+		live_url: "https://pizza-app-ten-xi.vercel.app/",
+		github_code: "https://github.com/Digofbbr/pizza-app",
+		image: PizzaImg,
+		tags: ["React", "Tailwind", "Redux Toolkit", "React Router"],
 	},
 	{
 		name: "Book Store",
 		live_url: "https://book-store-frontend-two-zeta.vercel.app/",
 		github_code: "https://github.com/Digofbbr/book-store-frontend",
-		image: "",
-		tags: ["React", "Tailwind", "Redux", "Firebase"],
+		image: BookImg,
+		tags: ["React", "Tailwind", "Redux Toolkit", "Firebase", "React Router"],
 	},
 ];
 
 const ProjectSection = styled("div")(({ theme }) => ({
 	padding: "50px 0",
 	backgroundColor: "#18181B",
+	position: "relative",
+
+	h2: {
+		color: "white",
+		fontSize: "40px",
+		marginBottom: "50px",
+		marginTop: "0px",
+	},
+
+	".section-title": {
+		textAlign: "center",
+	},
 }));
 
 const ProjectCardsWrapper = styled("div")(({ theme }) => ({
@@ -84,6 +101,27 @@ const ProjectCardsWrapper = styled("div")(({ theme }) => ({
 		transform: "translateY(100px)",
 	},
 }));
+
+/* const TriangleDown = styled("div")({
+	width: "0",
+	height: "0",
+	borderStyle: "solid",
+	borderWidth: "0 0 100px 50vw",
+	borderColor: "transparent transparent transparent #232323",
+	position: "absolute",
+	top: "0",
+	left: "0",
+}); */
+
+const TriangleDown = styled("div")({
+	width: "50vw", // A largura é total da tela
+	height: "100px", // Altura do triângulo
+	background: "linear-gradient(#232323, #18181B)",
+	clipPath: "polygon(100% 0, 0 0, 0 100%)",
+	position: "absolute",
+	top: "0",
+	left: "0",
+});
 
 const Projects = () => {
 	useGSAP(() => {
@@ -113,7 +151,7 @@ const Projects = () => {
 	return (
 		<ProjectSection className="projects-section" id="projects">
 			<Container>
-				<h2>My projects</h2>
+				<h2 className="section-title">My projects</h2>
 				<ProjectCardsWrapper>
 					{projectsInfo.map((project) => {
 						return (
@@ -130,6 +168,7 @@ const Projects = () => {
 					})}
 				</ProjectCardsWrapper>
 			</Container>
+			<TriangleDown></TriangleDown>
 		</ProjectSection>
 	);
 };

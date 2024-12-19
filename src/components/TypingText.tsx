@@ -9,10 +9,14 @@ const blink = keyframes`
 `;
 
 // Componente do texto estilizado
-const TypingWrapper = styled("div")`
-	font-size: 40px;
-	display: inline-block;
-`;
+const TypingWrapper = styled("div")(({ theme }) => ({
+	fontSize: "40px",
+	display: "inline-block",
+
+	[theme.breakpoints.down("sm")]: {
+		fontSize: "24px",
+	},
+}));
 
 // Estilo do cursor piscante
 const Cursor = styled("span")`
