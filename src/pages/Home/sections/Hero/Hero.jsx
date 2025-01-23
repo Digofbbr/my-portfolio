@@ -24,7 +24,8 @@ const Hero = () => {
 	const StyledAvatar = styled("img")({
 		borderRadius: "50%",
 		border: "2px solid white",
-		width: "70%",
+		width: "80%",
+		aspectRatio: '1/1',
 		zIndex: 10,
 	});
 

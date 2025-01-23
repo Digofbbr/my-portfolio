@@ -11,8 +11,16 @@ import DrinkImg from "../../../../assets/images/drinks.webp";
 import PizzaImg from "../../../../assets/images/pizzapp.png";
 import MovieImg from "../../../../assets/images/usepopcorn.png";
 import BookImg from "../../../../assets/images/bookstore.png";
+import OufiroImg from "../../../../assets/images/outfiro.png"
 
 const projectsInfo = [
+	{
+		name: "Outfiro E-commerce",
+		live_url: "https://outfiro-ecommerce-frontend.vercel.app/",
+		github_code: "https://github.com/Digofbbr/outfiro-ecommerce-frontend",
+		image: OufiroImg,
+		tags: ["React", "Tailwind", "ContextAPI", "React Router"],
+	},
 	{
 		name: "Recipe App",
 		live_url: "https://receitas-one.vercel.app/",
