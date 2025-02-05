@@ -12,6 +12,7 @@ import PizzaImg from "../../../../assets/images/pizzapp.png";
 import MovieImg from "../../../../assets/images/usepopcorn.png";
 import BookImg from "../../../../assets/images/bookstore.png";
 import OufiroImg from "../../../../assets/images/outfiro.png"
+import PetshopImg from "../../../../assets/images/petshop.png"
 
 const projectsInfo = [
 	{
@@ -34,6 +35,13 @@ const projectsInfo = [
 		github_code: "https://github.com/Digofbbr/Drinks-list",
 		image: DrinkImg,
 		tags: ["React", "Api", "React Router"],
+	},
+	{
+		name: "Petshop Landing Page",
+		live_url: "https://petshop-lp.vercel.app/",
+		github_code: "https://github.com/Digofbbr/petshop-lp",
+		image: PetshopImg,
+		tags: ["React", "Tailwind"],
 	},
 	{
 		name: "Movie Ratings",
@@ -151,9 +159,9 @@ const Projects = () => {
 			<Container>
 				<h2 className="section-title">My projects</h2>
 				<ProjectCardsWrapper>
-					{projectsInfo.map((project) => {
+					{projectsInfo.map((project, index) => {
 						return (
-							<div className="card-wrapper">
+							<div className="card-wrapper" key={index}>
 								<ProjectCard
 									name={project.name}
 									tags={project.tags}

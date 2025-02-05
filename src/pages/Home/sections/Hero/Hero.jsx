@@ -103,7 +103,7 @@ const Hero = () => {
 									justifyContent="center"
 								>
 									<StyledButton
-										onClick={() => window.open("/cv_en.pdf", "_blank")}
+										onClick={() => window.open("/Curriculum_Rodrigo_Barreto_2025.pdf", "_blank")}
 									>
 										<DownloadIcon />
 										<Typography>Download CV</Typography>
