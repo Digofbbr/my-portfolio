@@ -102,9 +102,9 @@ const ProjectCardsWrapper = styled("div")(({ theme }) => ({
 	},
 
 	".card-wrapper": {
-		opacity: "0",
+		opacity: "1",
 		flex: "1",
-		transform: "translateY(100px)",
+		//transform: "translateY(100px)",
 	},
 }));
 
@@ -130,7 +130,7 @@ const TriangleDown = styled("div")({
 });
 
 const Projects = () => {
-	useGSAP(() => {
+/* 	useGSAP(() => {
 		const cards = gsap.utils.toArray(".card-wrapper");
 
 		gsap.utils.toArray(cards).forEach((card, index) => {
@@ -153,7 +153,7 @@ const Projects = () => {
 				}
 			);
 		});
-	});
+	}); */
 	return (
 		<ProjectSection className="projects-section" id="projects">
 			<Container>
@@ -161,13 +161,14 @@ const Projects = () => {
 				<ProjectCardsWrapper>
 					{projectsInfo.map((project, index) => {
 						return (
-							<div className="card-wrapper" key={index}>
-								<ProjectCard
+							<div className="card-wrapper" key={index} >
+								<ProjectCard 
 									name={project.name}
 									tags={project.tags}
 									live_url={project.live_url}
 									github_code={project.github_code}
 									image={project.image}
+									index={index}
 								></ProjectCard>
 							</div>
 						);

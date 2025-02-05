@@ -88,16 +88,19 @@ const AnchorTag = styled("a")(({ theme }) => ({
 	},
 }));
 
-const ProjectCard = ({ image, name, github_code, live_url, tags }) => {
+const ProjectCard = ({ image, name, github_code, live_url, tags, index }) => {
+
+	const delay = (index % 3 + 1) * 200; // Primeiro item da linha 100ms, segundo 200ms, terceiro 300ms
+
 	return (
-		<ProjectCardStyled>
+		<ProjectCardStyled data-aos="fade-up" data-aos-delay={delay}>
 			<img src={image} alt={name} className="project-image" />
 			<div className="text-content">
 				<div>
 					<h3>{name}</h3>
 					<div className="tag-wrapper">
-						{tags.map((tag) => (
-							<span>{tag}</span>
+						{tags.map((tag, index) => (
+							<span key={index}>{tag}</span>
 						))}
 					</div>
 				</div>
